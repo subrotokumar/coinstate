@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class ApiData {
   Future<List<Cryptocurrency>> getApiData() async {
     Uri url = Uri.parse(
-        "https://api.nomics.com/v1/currencies/ticker?key=d97f16288bed7845681c713189f0c085f4adf0a0&interval=1d,30d&convert=INR&per-page=50&page=1");
+        "https://api.nomics.com/v1/currencies/ticker?key=d97f16288bed7845681c713189f0c085f4adf0a0&interval=1d,30d&convert=INR&per-page=25&page=1");
     var response = await http.get(url);
     var jsonData = jsonDecode(response.body);
     // List<dynamic> currencyList = jsonData as List<dynamic>;
@@ -16,9 +16,9 @@ class ApiData {
         name: i["name"],
         symbol: i["symbol"],
         price: i["price"],
-        rank: i["rank"],
+        rank: i["rank"] == null ? 999 : i["rank"],
         logoUrl: i["logo_url"],
-        priceChange1D: true ? "4.5" : i["1d"]["price_change_pct"],
+        priceChange1D: i["1d"]["price_change_pct"],
       );
       coinList.add(obj);
       print(obj.logoUrl);

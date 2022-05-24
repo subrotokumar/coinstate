@@ -8,48 +8,55 @@ class CryptoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        child: SvgPicture.network(
-          coin.logoUrl,
-          semanticsLabel: 'SVG From Network',
-          placeholderBuilder: (BuildContext context) => Container(
-            padding: const EdgeInsets.all(30.0),
-            child: const CircularProgressIndicator(
-              color: Colors.white,
-            ),
-          ), //placeholder while downloading file.
+    return GestureDetector(
+      onDoubleTap: () {},
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundColor: Colors.white,
+          child: SvgPicture.network(
+            coin.logoUrl,
+            semanticsLabel: 'SVG From Network',
+            placeholderBuilder: (BuildContext context) => Container(
+              child: const CircularProgressIndicator(
+                color: Colors.black,
+                strokeWidth: 1,
+              ),
+            ), //placeholder while downloading file.
+          ),
         ),
-      ),
-      title: Text(
-        coin.name,
-        style: const TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
-      ),
-      subtitle: Text(
-        coin.symbol.toUpperCase(),
-        style: const TextStyle(
-            color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 14),
-      ),
-      trailing: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            "₹${coin.price.substring(0, coin.price.indexOf('.') + 3)}",
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
-          ),
-          Text(
-            coin.priceChange1D,
-            style: const TextStyle(
-              color: Colors.green,
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
+        title: Text(
+          coin.name,
+          style: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        subtitle: Text(
+          coin.symbol.toUpperCase(),
+          style: const TextStyle(
+              color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 14),
+        ),
+        trailing: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              "₹${coin.price.substring(0, coin.price.indexOf('.') + 3)}",
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
             ),
-          ),
-        ],
+            Text(
+              coin.priceChange1D,
+              style: TextStyle(
+                color: coin.priceChange1D.contains("-")
+                    ? Colors.red
+                    : Colors.green,
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
