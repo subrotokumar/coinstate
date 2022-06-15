@@ -46,7 +46,7 @@ class CryptoTile extends StatelessWidget {
                   fontSize: 18),
             ),
             Text(
-              coin.priceChange1D,
+              "${coin.priceChange1D}%",
               style: TextStyle(
                 color: coin.priceChange1D.contains("-")
                     ? Colors.red

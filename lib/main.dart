@@ -1,4 +1,5 @@
 import 'package:cryptobook/pages/home_screen.dart';
+import 'package:cryptobook/widgets/crypto_tile_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,6 +19,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomeScreen(),
+      routes: {
+        "/": (context) => HomeScreen(),
+        CryptoTile.route: (context)=> CryptoTile();
+      }
     );
   }
 }

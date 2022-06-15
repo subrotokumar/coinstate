@@ -2,27 +2,36 @@ import 'package:cryptobook/widgets/currency_list_widget.dart';
 import 'package:flutter/material.dart';
 import '../widgets/search_bar_widget.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
-
-  PreferredSizeWidget appBar = AppBar(
-    title: const Text("CryptoBook"),
-    centerTitle: true,
-    elevation: 0,
-    backgroundColor: Colors.transparent,
-    leading: const Icon(Icons.menu),
-    actions: const <Widget>[
-      Padding(
-        padding: EdgeInsets.only(right: 15.0),
-        child: Icon(Icons.notifications_active_outlined),
-      )
-    ],
-  );
+class HomeScreen extends StatefulWidget {
+  bool showIcon;
+  HomeScreen({Key? key, this.showIcon = false}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+    PreferredSizeWidget appBar = AppBar(
+      title: const Text("CryptoBook"),
+      centerTitle: true,
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      actions: <Widget>[
+        Switch.adaptive(
+            value: widget.showIcon,
+            onChanged: (val) {
+              setState(() {
+                widget.showIcon = val;
+              });
+            })
+      ],
+    );
+
     return Scaffold(
       appBar: appBar,
+      drawer: const Icon(Icons.menu),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
