@@ -1,8 +1,10 @@
-import 'package:cryptobook/models/cryptocurrency.dart';
 import "package:flutter/material.dart";
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
+import '../models/cryptocurrency.dart';
 
 class CryptoTile extends StatelessWidget {
+  static String route = "/cryptotile";
   final Cryptocurrency coin;
   const CryptoTile(this.coin, {Key? key}) : super(key: key);
 
@@ -11,18 +13,23 @@ class CryptoTile extends StatelessWidget {
     return GestureDetector(
       onDoubleTap: () {},
       child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: SvgPicture.network(
-            coin.logoUrl,
-            semanticsLabel: 'SVG From Network',
-            placeholderBuilder: (BuildContext context) => Container(
-              child: const CircularProgressIndicator(
-                color: Colors.black,
-                strokeWidth: 1,
-              ),
-            ), //placeholder while downloading file.
+        leading: CachedNetworkImage(
+          imageUrl: coin.logoUrl,
+          imageBuilder: (context, imageProvider) => Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+              image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
+            ),
           ),
+          progressIndicatorBuilder:
+              (BuildContext context, url, downloadProgress) =>
+                  const CircularProgressIndicator(
+            color: Colors.black,
+            strokeWidth: 1,
+          ), //placeholder while downloading file.
         ),
         title: Text(
           coin.name,
@@ -39,14 +46,14 @@ class CryptoTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "₹${coin.price.substring(0, coin.price.indexOf('.') + 3)}",
+              "₹${coin.price}",
               style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 18),
             ),
             Text(
-              "${coin.priceChange1D}%",
+              "${coin.priceChange1D.substring(0, coin.priceChange1D.indexOf(".") + 4)}%",
               style: TextStyle(
                 color: coin.priceChange1D.contains("-")
                     ? Colors.red

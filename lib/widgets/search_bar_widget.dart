@@ -24,7 +24,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
       ),
       child: Row(
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: Icon(
               Icons.search,
@@ -33,8 +33,8 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
           ),
           Expanded(
             child: TextField(
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
               cursorColor: Colors.white,
               controller: str,
               decoration: const InputDecoration(

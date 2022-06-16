@@ -13,8 +13,9 @@
 
 
 ## Screenshot 
-
-![]()
+<p align="center">
+<img src="./assets/meta/ss1.jpg" height="400">
+</p>
 
 ## Features
 

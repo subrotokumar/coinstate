@@ -1,13 +1,13 @@
-import 'dart:convert';
-// import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:cryptobook/models/cryptocurrency.dart';
 import "package:flutter/material.dart";
-import "../api/api_Data.dart";
+// import 'package:provider/provider.dart';
+
 import './crypto_tile_widget.dart';
 
+import '../services/api_data.dart';
+import '../models/cryptocurrency.dart';
+
 class CryptoListWidget extends StatefulWidget {
-  CryptoListWidget({Key? key}) : super(key: key);
+  const CryptoListWidget({Key? key}) : super(key: key);
 
   @override
   State<CryptoListWidget> createState() => _CryptoListWidgetState();
@@ -15,25 +15,26 @@ class CryptoListWidget extends StatefulWidget {
 
 class _CryptoListWidgetState extends State<CryptoListWidget> {
   List<Cryptocurrency> coinList = [];
-  bool _loading = true;
-
+  bool loading = true;
   @override
   void initState() {
+    getData();
     super.initState();
-    getNews();
   }
 
-  getNews() async {
-    ApiData obj = ApiData();
-    coinList = await obj.getApiData();
+  void getData() async {
+    coinList = await ApiData.getApiData1();
     setState(() {
-      _loading = false;
+      loading = false;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return _loading
+    // bool loading = context.read<CryptoProvider>().loading;
+    // var cryptoprovider = Provider.of<CryptoProvider>(context, listen: false);
+    // var coinList = cryptoprovider.getData();
+    return loading
         ? const Center(
             child: CircularProgressIndicator(
               color: Colors.white,

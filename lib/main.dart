@@ -1,9 +1,20 @@
-import 'package:cryptobook/pages/home_screen.dart';
-import 'package:cryptobook/widgets/crypto_tile_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import './pages/about.dart';
+import './pages/home_screen.dart';
+import './utils/crypto_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CryptoProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,15 +25,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'CrytoBook',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
       routes: {
-        "/": (context) => HomeScreen(),
-        CryptoTile.route: (context)=> CryptoTile();
-      }
+        "/": (_) => HomeScreen(),
+        About.route: (_) => const About(),
+      },
     );
   }
 }
