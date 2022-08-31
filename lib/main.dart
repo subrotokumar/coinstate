@@ -27,10 +27,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'CrytoBook',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+            .copyWith(secondary: Colors.white),
       ),
+      initialRoute: HomeScreen.route,
       routes: {
-        "/": (_) => HomeScreen(),
+        HomeScreen.route: (_) => HomeScreen(),
         About.route: (_) => const About(),
       },
     );

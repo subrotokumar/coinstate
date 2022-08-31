@@ -35,6 +35,9 @@ class Cryptocurrency {
   final String price;
   final String rank;
   final String priceChange1D;
+  final String high_24h;
+  final String low_24h;
+  final String marketCap;
 
   Cryptocurrency({
     required this.id,
@@ -44,6 +47,9 @@ class Cryptocurrency {
     required this.rank,
     required this.logoUrl,
     required this.priceChange1D,
+    required this.high_24h,
+    required this.low_24h,
+    required this.marketCap,
   });
 
   factory Cryptocurrency.fromJSON(Map<String, dynamic> map) {
@@ -55,6 +61,9 @@ class Cryptocurrency {
       rank: map["market_cap_rank"].toString(),
       logoUrl: map["image"],
       priceChange1D: map["price_change_percentage_24h"].toString(),
+      high_24h: map["high_24h"].toString(),
+      low_24h: map["low_24h"].toString(),
+      marketCap: map["market_cap"].toString(),
     );
   }
 }

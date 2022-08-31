@@ -38,6 +38,7 @@ dependencies:
   provider: ^6.0.3
   share_plus: ^4.0.8
   cached_network_image: ^3.2.1
+  screenshot: ^1.2.3
 
 dev_dependencies:
   flutter_test:

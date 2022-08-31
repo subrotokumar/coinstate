@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../models/cryptocurrency.dart';
+import '../pages/detail_screen.dart';
 
 class CryptoTile extends StatelessWidget {
   static String route = "/cryptotile";
@@ -10,26 +11,39 @@ class CryptoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onDoubleTap: () {},
-      child: ListTile(
-        leading: CachedNetworkImage(
-          imageUrl: coin.logoUrl,
-          imageBuilder: (context, imageProvider) => Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-              image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
-            ),
+    return InkWell(
+      borderRadius: BorderRadius.circular(15),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return DetailPage(coin);
+            },
           ),
-          progressIndicatorBuilder:
-              (BuildContext context, url, downloadProgress) =>
-                  const CircularProgressIndicator(
-            color: Colors.black,
-            strokeWidth: 1,
-          ), //placeholder while downloading file.
+        );
+      },
+      child: ListTile(
+        leading: Hero(
+          tag: coin.name,
+          child: CachedNetworkImage(
+            imageUrl: coin.logoUrl,
+            imageBuilder: (context, imageProvider) => Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
+              ),
+            ),
+            progressIndicatorBuilder:
+                (BuildContext context, url, downloadProgress) =>
+                    const CircularProgressIndicator(
+              color: Colors.black,
+              strokeWidth: 1,
+            ), //placeholder while downloading file.
+          ),
         ),
         title: Text(
           coin.name,
@@ -46,7 +60,7 @@ class CryptoTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "₹${coin.price}",
+              "\$ ${coin.price}",
               style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

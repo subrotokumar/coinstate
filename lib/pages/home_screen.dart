@@ -7,6 +7,7 @@ import '../widgets/drawer_widget.dart';
 import '../widgets/search_bar_widget.dart';
 
 class HomeScreen extends StatefulWidget {
+  static String route = "/home";
   bool defaultCurrencyISD = true;
 
   HomeScreen({Key? key}) : super(key: key);
@@ -19,35 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     PreferredSizeWidget appBar = AppBar(
-      title: const Text("CryptoBook"),
+      title: const Text("DASHBOARD"),
       centerTitle: true,
       elevation: 0,
       backgroundColor: Colors.transparent,
-      actions: [
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              widget.defaultCurrencyISD = !widget.defaultCurrencyISD;
-            });
-          },
-          child: Container(
-            padding: const EdgeInsets.only(right: 15),
-            child: Center(
-              child: CircleAvatar(
-                radius: 15,
-                backgroundColor: Colors.amber,
-                child: Text(
-                  widget.defaultCurrencyISD ? "₹" : "\$",
-                  style: const TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black45),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
     );
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -67,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             appBar.preferredSize.height) *
                         0.83,
                     width: double.infinity,
-                    child: CryptoListWidget(),
+                    child: const CryptoListWidget(),
                   ),
                 ),
               ],

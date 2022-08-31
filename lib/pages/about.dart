@@ -4,7 +4,7 @@ import 'package:share_plus/share_plus.dart';
 import '../widgets/drawer_widget.dart';
 
 class About extends StatelessWidget {
-  static String route = "/about";
+  static String route = "/About";
   const About({Key? key}) : super(key: key);
 
   Widget textWidget(String data) {
@@ -15,7 +15,7 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ABOUT"),
+        title: const Text("About"),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -24,7 +24,8 @@ class About extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: GestureDetector(
               onTap: () {
-                Share.share("Hey, checkout this awesome cryptocurrency app.");
+                Share.share(
+                    "Hey, checkout this awesome cryptocurrency app https://github.com/subrotokumar/cryptobook");
               },
               child: const Icon(Icons.share),
             ),
@@ -50,9 +51,7 @@ class About extends StatelessWidget {
             ),
             textWidget("CryptoBook"),
             textWidget("All-in-one Crytocurrency Solution for Mobile."),
-            textWidget(
-              "Contact with me",
-            )
+            textWidget("Contact with me")
           ],
         ),
       ),
