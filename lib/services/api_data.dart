@@ -34,4 +34,18 @@ class ApiData {
       return [];
     }
   }
+
+  static Future<String> getDescription(String id) async {
+    try {
+      List<Cryptocurrency> coins = [];
+      Uri url = Uri.parse(
+          "https://api.coingecko.com/api/v3/coins/$id?tickers=false&market_data=false&community_data=false&developer_data=false");
+      var response = await http.get(url);
+      var jsonData = jsonDecode(response.body) as Map;
+      String description = jsonData['description']['en'] as String;
+      return description;
+    } catch (e) {
+      return "";
+    }
+  }
 }

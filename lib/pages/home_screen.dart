@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/crypto_provider.dart';
-import '../widgets/currency_list_widget.dart';
-import '../widgets/drawer_widget.dart';
-import '../widgets/search_bar_widget.dart';
+import '../widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   static String route = "/home";
@@ -35,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                SearchBarWidget(),
+                const SearchBarWidget(),
                 const SizedBox(height: 10),
                 Center(
                   child: SizedBox(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../widgets/chart_filter.dart';
+import '../widgets/widgets.dart';
 import '../models/cryptocurrency.dart';
 
 class DetailPage extends StatelessWidget {
@@ -155,25 +155,45 @@ class DetailPage extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
         ),
-        body: Column(
-          children: [
-            // _coinIcon(),
-            // _buildAmount(),
-            titleSection(),
-            // Divider(color: Colors.white),
-            ChartFilter(),
-            const Divider(),
-            detailSection(),
-            const Divider(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: Text(
-                coin.id.toUpperCase(),
-                style: const TextStyle(color: Colors.white, fontSize: 16),
-                textAlign: TextAlign.justify,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              // _coinIcon(),
+              // _buildAmount(),
+              titleSection(),
+              // Divider(color: Colors.white),
+              ChartFilter(),
+              const Divider(),
+              detailSection(),
+              const Divider(),
+
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 3, right: 10, bottom: 70, left: 10),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10,
+                      color: Colors.transparent.withOpacity(0.05),
+                      shadowColor: Colors.transparent,
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 12),
+                          Text(
+                            coin.id.toUpperCase(),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 16),
+                            textAlign: TextAlign.justify,
+                          ),
+                          Description(coin.id),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         backgroundColor: Colors.white12,
         floatingActionButton: FloatingActionButton(

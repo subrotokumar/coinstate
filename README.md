@@ -8,7 +8,7 @@
 
 <p align="center"><a href="https://github.com/subrotokumar/cryptobook/releases"> <img width="100px" src="./assets/meta/download.png"> </a>
 <br>
-<a href="https://github.com/subrotokumar/cryptobook" alt="GitHub release"><img width="80px" src="https://img.shields.io/badge/version-0.1.0-blue.svg" ></a>
+<a href="https://github.com/subrotokumar/cryptobook" alt="GitHub release"><img width="80px" src="https://img.shields.io/badge/version-0.1.1-blue.svg" ></a>
 </p>
 
 
@@ -27,7 +27,8 @@
 
 **Language:** Dart  
 **Framework:** Flutter  
-**Dependencies:** http, flutter_svg, 
+**Dependencies:** http, flutter_svg, flutter_html
+**API:** Coingecko
 
 
 ## Run Locally

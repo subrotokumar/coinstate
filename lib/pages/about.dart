@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../widgets/drawer_widget.dart';
-
 class About extends StatelessWidget {
   static String route = "/About";
   const About({Key? key}) : super(key: key);

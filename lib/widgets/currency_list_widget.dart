@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 // import 'package:provider/provider.dart';
 
 import './crypto_tile_widget.dart';
-
 import '../services/api_data.dart';
 import '../models/cryptocurrency.dart';
 
@@ -16,6 +15,7 @@ class CryptoListWidget extends StatefulWidget {
 class _CryptoListWidgetState extends State<CryptoListWidget> {
   List<Cryptocurrency> coinList = [];
   bool loading = true;
+
   @override
   void initState() {
     getData();
