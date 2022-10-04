@@ -2,7 +2,7 @@
     package="com.example.cryptobook">
    <application
         android:label="cryptobook"
-        android:name="Cryptobook"
+        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
