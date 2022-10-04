@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:lottie/lottie.dart';
 
 import '../services/api_data.dart';
 
@@ -31,11 +32,8 @@ class _DescriptionState extends State<Description> {
   Widget build(BuildContext context) {
     var htmldata = widget.desc;
     return widget.loading
-        ? const SizedBox(
-            height: 60,
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
+        ? Center(
+            child: Lottie.asset('assets/lotties/loading.json', width: 200),
           )
         : Html(
             data: htmldata,

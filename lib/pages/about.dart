@@ -13,7 +13,7 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("About"),
+        title: const Text("ABOUT"),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -23,7 +23,7 @@ class About extends StatelessWidget {
             child: GestureDetector(
               onTap: () {
                 Share.share(
-                    "Hey, checkout this awesome cryptocurrency app https://github.com/subrotokumar/cryptobook");
+                    "Hey, checkout this awesome cryptocurrency app on GitHub: https://github.com/subrotokumar/cryptobook");
               },
               child: const Icon(Icons.share),
             ),
@@ -48,8 +48,15 @@ class About extends StatelessWidget {
               height: 20,
             ),
             textWidget("CryptoBook"),
+            const Divider(color: Colors.white),
             textWidget("All-in-one Crytocurrency Solution for Mobile."),
-            textWidget("Contact with me")
+            const SizedBox(height: 20),
+            const Divider(color: Colors.white),
+            textWidget("Contact with me: "),
+            textWidget("Linkedin: www.linkedin.com/in/kumarsubroto"),
+            textWidget("Twitter: @SubrotoKr"),
+            textWidget("GitHub: @Subrotokumar"),
+            const Divider(color: Colors.white),
           ],
         ),
       ),

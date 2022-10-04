@@ -1,4 +1,6 @@
+import 'package:cryptobook/providers/crypto_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SearchBarWidget extends StatefulWidget {
   const SearchBarWidget({Key? key}) : super(key: key);
@@ -9,6 +11,12 @@ class SearchBarWidget extends StatefulWidget {
 
 class _SearchBarWidgetState extends State<SearchBarWidget> {
   final str = TextEditingController();
+
+  @override
+  void dispose() {
+    str.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +51,14 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                 iconColor: Colors.white,
                 border: InputBorder.none,
               ),
+              onChanged: (value) {
+                var provider =
+                    Provider.of<CryptoProvider>(context, listen: false);
+                provider.setFilterString(str.text);
+                if (provider.getCoinList.isEmpty) {
+                  provider.getData();
+                }
+              },
             ),
           )
         ],
