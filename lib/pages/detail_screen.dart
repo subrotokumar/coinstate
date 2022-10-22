@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cryptobook/widgets/global/screenshot.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
-import 'package:share_plus/share_plus.dart';
 
-import '../widgets/widgets.dart';
-import '../models/cryptocurrency.dart';
+import '../services/models/cryptocurrency.dart';
+import '../widgets/local/chart_filter.dart';
+import '../widgets/local/description.dart';
 
 class DetailPage extends StatelessWidget {
   static String route = '/detail-page';
@@ -198,15 +199,9 @@ class DetailPage extends StatelessWidget {
         backgroundColor: Colors.white12,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            // Uint8List _imageFile;
-            // screenshotController.capture().then((value) {
-            //   _imageFile = value!;
-            // }).catchError((e) {
-            //   print(e);
-            // });
-            String detail =
-                "*${coin.name.toUpperCase()}*:\n\n• Price : \$${coin.price}\n• Price change in 24 hour : ${coin.priceChange1D} %\n• Checkout more at https://coinmarketcap.com/currencies/${coin.name.toLowerCase()}/";
-            Share.share(detail);
+            TakeScreenshot(
+                controller: screenshotController,
+                text: 'Latest ${coin.name.toUpperCase()} price-feed');
           },
           child: const Icon(Icons.share, color: Colors.purple),
         ),

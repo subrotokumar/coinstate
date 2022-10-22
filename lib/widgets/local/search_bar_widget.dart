@@ -1,4 +1,4 @@
-import 'package:cryptobook/providers/crypto_provider.dart';
+import 'package:cryptobook/services/providers/crypto_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

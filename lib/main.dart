@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './pages/screens.dart';
-import './providers/crypto_provider.dart';
+import 'services/providers/crypto_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         routes: {
           SplashScreen.route: (_) => const SplashScreen(),
           HomeScreen.route: (_) => HomeScreen(),
-          About.route: (_) => const About(),
+          About.route: (_) => About(),
         },
       ),
     );

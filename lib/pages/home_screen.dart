@@ -2,8 +2,9 @@ import 'package:cryptobook/pages/about.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/crypto_provider.dart';
-import '../widgets/widgets.dart';
+import '../services/providers/crypto_provider.dart';
+import '../widgets/local/currency_list_widget.dart';
+import '../widgets/local/search_bar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   static String route = "/home";

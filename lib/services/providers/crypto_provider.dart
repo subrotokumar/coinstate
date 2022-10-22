@@ -1,6 +1,6 @@
-import 'package:cryptobook/models/cryptocurrency.dart';
+import 'package:cryptobook/services/models/cryptocurrency.dart';
 import 'package:flutter/foundation.dart';
-import '../services/api_data.dart';
+import '../functions/api_data.dart';
 
 class CryptoProvider extends ChangeNotifier {
   bool isLoading = false;
@@ -28,7 +28,7 @@ class CryptoProvider extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     _filterString = "";
-    _coinList = await ApiData.getApiData1();
+    _coinList = await ApiData.getApiData();
     isLoading = false;
     notifyListeners();
   }

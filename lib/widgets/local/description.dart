@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:lottie/lottie.dart';
 
-import '../services/api_data.dart';
+import '../../services/functions/api_data.dart';
 
 class Description extends StatefulWidget {
   String id;

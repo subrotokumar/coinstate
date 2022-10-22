@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import '../models/cryptocurrency.dart';
 
 class ApiData {
-  static Future<List<dynamic>> getApiData() async {
+  static Future<List<dynamic>> getApiData1() async {
     try {
       Uri url = Uri.parse(
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=20&page=1&sparkline=false");
@@ -17,7 +17,7 @@ class ApiData {
     }
   }
 
-  static Future<List<Cryptocurrency>> getApiData1({bool isINR = false}) async {
+  static Future<List<Cryptocurrency>> getApiData({bool isINR = false}) async {
     try {
       List<Cryptocurrency> coins = [];
       Uri url = Uri.parse(

@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:cached_network_image/cached_network_image.dart';
 
-import '../models/cryptocurrency.dart';
-import '../pages/detail_screen.dart';
+import '../../pages/detail_screen.dart';
+import '../../services/models/cryptocurrency.dart';
 
 class CryptoTile extends StatelessWidget {
   static String route = "/cryptotile";

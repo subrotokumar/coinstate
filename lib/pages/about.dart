@@ -1,13 +1,17 @@
+import 'package:cryptobook/widgets/global/screenshot.dart';
+import 'package:cryptobook/widgets/global/social_link.dart';
 import 'package:flutter/material.dart';
-import 'package:share_plus/share_plus.dart';
+import 'package:screenshot/screenshot.dart';
 
 class About extends StatelessWidget {
   static String route = "/About";
-  const About({Key? key}) : super(key: key);
+  About({Key? key}) : super(key: key);
 
   Widget textWidget(String data) {
     return Text(data, style: const TextStyle(color: Colors.white));
   }
+
+  ScreenshotController controller = ScreenshotController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +26,10 @@ class About extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: GestureDetector(
               onTap: () {
-                Share.share(
-                    "Hey, checkout this awesome cryptocurrency app on GitHub: https://github.com/subrotokumar/cryptobook");
+                TakeScreenshot(
+                    controller: controller,
+                    text:
+                        'Download Coinstate: www.github.com/subrotokumar/cryptobook');
               },
               child: const Icon(Icons.share),
             ),
@@ -43,20 +49,57 @@ class About extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 80, child: Image.asset("assets/meta/icon.png")),
-            const SizedBox(
-              height: 20,
+            Screenshot(
+              controller: controller,
+              child: Container(
+                color: Colors.transparent,
+                child: Column(
+                  children: [
+                    SizedBox(height: 20),
+                    SizedBox(
+                        height: 80, child: Image.asset("assets/meta/icon.png")),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'COINSTATE',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22),
+                    ),
+                    const Divider(color: Colors.white),
+                    const SizedBox(height: 10),
+                    textWidget("All-in-one Crytocurrency Solution for Mobile."),
+                    const SizedBox(height: 10),
+                    const Divider(color: Colors.white),
+                  ],
+                ),
+              ),
             ),
-            textWidget("CryptoBook"),
-            const Divider(color: Colors.white),
-            textWidget("All-in-one Crytocurrency Solution for Mobile."),
-            const SizedBox(height: 20),
-            const Divider(color: Colors.white),
-            textWidget("Contact with me: "),
-            textWidget("Linkedin: www.linkedin.com/in/kumarsubroto"),
-            textWidget("Twitter: @SubrotoKr"),
-            textWidget("GitHub: @Subrotokumar"),
-            const Divider(color: Colors.white),
+            Text(
+              'CONNECT',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GitHub(username: 'subrotokumar'),
+                Twitter(username: 'subrotokr'),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Linkedin(username: 'kumarsubroto'),
+                Email(address: 'subrotokumar.com'),
+              ],
+            ),
+            Divider(color: Colors.white),
           ],
         ),
       ),
