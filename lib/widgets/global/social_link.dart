@@ -18,9 +18,15 @@ Widget GitHub({required String username}) {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(
-        child: Text(
-          'GitHub',
-          style: TextStyle(color: Colors.white),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset('assets/icons/ic_github.png'),
+            Text(
+              'GitHub   ',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
         ),
       ),
     ),
@@ -44,9 +50,19 @@ Widget Twitter({required String username}) {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(
-        child: Text(
-          'Twitter',
-          style: TextStyle(color: Colors.white),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              child: Image.asset('assets/icons/ic_twitter.png'),
+              radius: 15,
+              backgroundColor: Colors.white,
+            ),
+            Text(
+              '   Twitter  ',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
         ),
       ),
     ),
@@ -70,9 +86,19 @@ Widget Linkedin({required String username}) {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(
-        child: Text(
-          'Linkedln',
-          style: TextStyle(color: Colors.white),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            CircleAvatar(
+              child: Image.asset('assets/icons/ic_linkedin.png'),
+              radius: 15,
+              backgroundColor: Colors.white,
+            ),
+            Text(
+              'Linkedin ',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
         ),
       ),
     ),
@@ -96,9 +122,19 @@ Widget Email({required String address}) {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(
-        child: Text(
-          'Email',
-          style: TextStyle(color: Colors.white),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            CircleAvatar(
+              child: Image.asset('assets/icons/ic_email.png'),
+              radius: 15,
+              backgroundColor: Colors.white,
+            ),
+            Text(
+              ' Email    ',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
         ),
       ),
     ),

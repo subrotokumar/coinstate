@@ -1,7 +1,8 @@
-import 'package:cryptobook/widgets/global/screenshot.dart';
-import 'package:cryptobook/widgets/global/social_link.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
+
+import '../widgets/global/send_screenshot.dart';
+import '../widgets/global/social_link.dart';
 
 class About extends StatelessWidget {
   static String route = "/About";
@@ -26,10 +27,11 @@ class About extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: GestureDetector(
               onTap: () {
-                TakeScreenshot(
-                    controller: controller,
-                    text:
-                        'Download Coinstate: www.github.com/subrotokumar/cryptobook');
+                SendScreenshot(
+                  controller: controller,
+                  text:
+                      'Download Coinstate: www.github.com/subrotokumar/cryptobook',
+                );
               },
               child: const Icon(Icons.share),
             ),
@@ -57,7 +59,8 @@ class About extends StatelessWidget {
                   children: [
                     SizedBox(height: 20),
                     SizedBox(
-                        height: 80, child: Image.asset("assets/meta/icon.png")),
+                        height: 80,
+                        child: Image.asset("assets/icons/icon.png")),
                     const SizedBox(
                       height: 20,
                     ),

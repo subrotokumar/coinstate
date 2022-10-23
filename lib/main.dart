@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './pages/screens.dart';
+import 'pages/about.dart';
+import 'pages/home_screen.dart';
+import 'pages/splash_screen.dart';
 import 'services/providers/crypto_provider.dart';
 
 void main() {

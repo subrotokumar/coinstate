@@ -1,6 +1,6 @@
-# Cryptobook 
+# Coinstate
 
-> Cyptocurrency Price Tracker for mobile  
+> Cyptocurrency Price Tracker for mobile platform.
 
 <p align="center">
   <img height="80px" src="./assets/meta/icon.png">
@@ -14,14 +14,18 @@
 
 ## Screenshot 
 <p align="center">
-<img src="./assets/meta/ss1.jpg" height="400">
+<img src="./assets/meta/ss1.png" height="400">&nbsp;&nbsp;
+<img src="./assets/meta/ss2.png" height="400">&nbsp;&nbsp;
+<img src="./assets/meta/ss3.png" height="400">&nbsp;&nbsp;
+<img src="./assets/meta/ss4.png" height="400">
 </p>
 
 ## Features
 
-- Clean and Modern UI
-- Live price previews
-- Cross platform
+- Clean and Modern UI.
+- Live price previews.
+- Share price info via Platform sharing menu.
+- 
 
 ## Tech Stack
 
@@ -37,23 +41,8 @@ Clone the project
 
 ```bash
   git clone https://github.com/subrotokumar/cryptobook.git
-```
-
-Go to the project directory
-
-```bash
   cd cryptobook
-```
-
-Install dependencies
-
-```bash
   flutter pub get
-```
-
-Start the server
-
-```bash
   flutter run
 ```
 

@@ -3,7 +3,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 
-TakeScreenshot(
+SendScreenshot(
     {required ScreenshotController controller, required String text}) {
   return controller.capture().then((image) async {
     final directory = (await getExternalStorageDirectory())?.path;

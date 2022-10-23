@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cryptobook/widgets/global/screenshot.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../services/models/cryptocurrency.dart';
+import '../widgets/global/send_screenshot.dart';
 import '../widgets/local/chart_filter.dart';
 import '../widgets/local/description.dart';
 
@@ -199,9 +199,10 @@ class DetailPage extends StatelessWidget {
         backgroundColor: Colors.white12,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            TakeScreenshot(
-                controller: screenshotController,
-                text: 'Latest ${coin.name.toUpperCase()} price-feed');
+            SendScreenshot(
+              controller: screenshotController,
+              text: 'Latest ${coin.name.toUpperCase()} price-feed',
+            );
           },
           child: const Icon(Icons.share, color: Colors.purple),
         ),

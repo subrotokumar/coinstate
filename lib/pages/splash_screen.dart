@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 50),
               child: Text(
-                'CRYPTOBOOK',
+                'COINSTATE',
                 style: TextStyle(
                   color: Colors.orange,
                   fontWeight: FontWeight.bold,
