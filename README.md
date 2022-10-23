@@ -31,8 +31,10 @@
 
 **Language:** Dart  
 **Framework:** Flutter  
-**Dependencies:** http, flutter_svg, flutter_html
-**API:** Coingecko
+**Dependencies:** :  
+  http&nbsp;- flutter_svg&nbsp; - provider&nbsp;- share_plus&nbsp;- cached_network_image&nbsp;- screenshot  
+  lottie&nbsp;- flutter_launcher_icons&nbsp;- flutter_html&nbsp;-path_provider&nbsp;- url_launcher
+
 
 
 ## Run Locally
