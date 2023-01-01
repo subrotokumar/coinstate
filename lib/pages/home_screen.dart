@@ -70,25 +70,42 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 InkWell(
+                                  onTap: () => setState(() {
+                                    if (currentPage >= 11)
+                                      currentPage -= 10;
+                                    else
+                                      currentPage = 1;
+                                  }),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.keyboard_double_arrow_left,
+                                      color: Colors.amber,
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
                                   onTap: () {
                                     if (currentPage > 1) {
                                       setState(() => currentPage--);
                                     }
                                   },
-                                  onLongPress: () =>
-                                      setState(() => currentPage = 1),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Icon(Icons.arrow_back_ios,
                                         color: Colors.white),
                                   ),
                                 ),
-                                Text(
-                                  'PAGE : $currentPage',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
+                                InkWell(
+                                  onLongPress: () =>
+                                      setState(() => currentPage = 1),
+                                  child: Text(
+                                    'PAGE : $currentPage',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                                 InkWell(
@@ -97,8 +114,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       setState(() => currentPage++);
                                     }
                                   },
-                                  onLongPress: () =>
-                                      setState(() => currentPage += 10),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Icon(
@@ -107,10 +122,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ),
+                                InkWell(
+                                  onTap: () => setState(() {
+                                    if (currentPage <= 90)
+                                      currentPage += 10;
+                                    else
+                                      currentPage = 100;
+                                  }),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.keyboard_double_arrow_right,
+                                      color: Colors.amber,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                             OutlinedButton(
                               onPressed: () {
+                                if (currentPage == page) return;
                                 Provider.of<CryptoProvider>(context,
                                         listen: false)
                                     .getData(page: currentPage);
