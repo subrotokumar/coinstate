@@ -24,11 +24,11 @@ class CryptoProvider extends ChangeNotifier {
 
   String get filterString => _filterString;
 
-  Future<void> getData() async {
+  Future<void> getData({int page = 1}) async {
     isLoading = true;
     notifyListeners();
     _filterString = "";
-    _coinList = await ApiData.getApiData();
+    _coinList = await ApiData.getApiData(page: page);
     isLoading = false;
     notifyListeners();
   }

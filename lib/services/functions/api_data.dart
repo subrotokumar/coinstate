@@ -17,13 +17,16 @@ class ApiData {
     }
   }
 
-  static Future<List<Cryptocurrency>> getApiData({bool isINR = false}) async {
+  static Future<List<Cryptocurrency>> getApiData(
+      {bool isINR = false, int page = 1}) async {
     try {
       List<Cryptocurrency> coins = [];
       Uri url = Uri.parse(
-          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=${isINR ? "inr" : "usd"}&order=market_cap_desc&per_page=100&page=1&sparkline=false");
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=${isINR ? "inr" : "usd"}&order=market_cap_desc&per_page=100&page=$page&sparkline=false");
+      print(url.toString());
       var response = await http.get(url);
       var jsonData = jsonDecode(response.body) as List<dynamic>;
+      print(jsonData);
       for (var market in jsonData) {
         Cryptocurrency token = Cryptocurrency.fromJSON(market);
         // print(token);
