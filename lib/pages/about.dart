@@ -73,7 +73,7 @@ class About extends StatelessWidget {
                     ),
                     const Divider(color: Colors.white),
                     const SizedBox(height: 10),
-                    textWidget("All-in-one Crytocurrency Solution for Mobile."),
+                    textWidget("Your Personal Cryptocurrency Handbook"),
                     const SizedBox(height: 10),
                     const Divider(color: Colors.white),
                   ],
@@ -93,13 +93,6 @@ class About extends StatelessWidget {
               children: [
                 GitHub(username: 'subrotokumar'),
                 Twitter(username: 'subrotokr'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Linkedin(username: 'kumarsubroto'),
-                Email(address: 'subrotokumar.com'),
               ],
             ),
             Divider(color: Colors.white),

@@ -23,19 +23,27 @@
 ## Features
 
 - Clean and Modern UI.
-- Live price previews.
-- Share price info via Platform sharing menu.
-- 
+- Displays live cryptocurrency price-feed stats.
+- Build with Json API that fatches detail from api in realtime.
+- Sharing option: Allow you to share info via the platform sharing menu.
+- Available for both Android and IOS.
 
 ## Tech Stack
 
 **Language:** Dart  
 **Framework:** Flutter  
 **Dependencies:** :  
-  http&nbsp;- flutter_svg&nbsp; - provider&nbsp;- share_plus&nbsp;- cached_network_image&nbsp;- screenshot  
-  lottie&nbsp;- flutter_launcher_icons&nbsp;- flutter_html&nbsp;-path_provider&nbsp;- url_launcher
-
-
+  >http,&nbsp;
+  flutter_svg,&nbsp;
+  provider,&nbsp;
+  share_plus,&nbsp;
+  cached_network_image,&nbsp;
+  screenshot,&nbsp;  
+  >lottie,&nbsp;
+  flutter_launcher_icons,&nbsp;
+  flutter_html,&nbsp;
+  path_provider,&nbsp;
+  url_launcher&nbsp;
 
 ## Run Locally
 
@@ -55,3 +63,7 @@ Your ideas, translations, design changes, code cleaning, or real heavy code chan
 <!--
 #### Known issues and limitations
 -->
+
+<center>
+<strong>Star ⭐ this repo to show your support and it really does matter!** 👏<strong>
+</center>

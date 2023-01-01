@@ -1,4 +1,4 @@
-package com.example.cryptobook
+package com.subrotokumar.coinstate
 
 import io.flutter.embedding.android.FlutterActivity
 
