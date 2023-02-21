@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cryptobook/widgets/local/chart_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 
@@ -159,15 +160,13 @@ class DetailPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              // _coinIcon(),
-              // _buildAmount(),
               titleSection(),
-              // Divider(color: Colors.white),
-              ChartFilter(),
-              const Divider(),
+              Divider(color: Colors.white10),
               detailSection(),
-              const Divider(),
-
+              Divider(color: Colors.white10),
+              SizedBox(height: 10),
+              ChartWidget(coin.id),
+              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(
                     top: 3, right: 10, bottom: 70, left: 10),
@@ -175,19 +174,21 @@ class DetailPage extends StatelessWidget {
                   children: [
                     Card(
                       elevation: 10,
-                      color: Colors.transparent.withOpacity(0.05),
-                      shadowColor: Colors.transparent,
-                      child: Column(
-                        children: [
-                          const SizedBox(height: 12),
-                          Text(
-                            coin.id.toUpperCase(),
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 16),
-                            textAlign: TextAlign.justify,
-                          ),
-                          Description(coin.id),
-                        ],
+                      color: Colors.black12.withOpacity(0.05),
+                      // shadowColor: Colors.white10,
+                      child: Flexible(
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 12),
+                            Text(
+                              coin.id.toUpperCase(),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 16),
+                              textAlign: TextAlign.justify,
+                            ),
+                            Description(coin.id),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -204,7 +205,7 @@ class DetailPage extends StatelessWidget {
               text: 'Latest ${coin.name.toUpperCase()} price-feed',
             );
           },
-          child: const Icon(Icons.share, color: Colors.purple),
+          child: const Icon(Icons.share, color: Colors.white),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../widgets/global/send_screenshot.dart';
 import '../widgets/global/social_link.dart';
@@ -58,9 +59,13 @@ class About extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(height: 20),
-                    SizedBox(
-                        height: 80,
-                        child: Image.asset("assets/icons/icon.png")),
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 42,
+                      child: SizedBox(
+                          height: 80,
+                          child: Image.asset("assets/meta/icon.png")),
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -71,11 +76,27 @@ class About extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 22),
                     ),
-                    const Divider(color: Colors.white),
+                    Text(
+                      'Powered By CoinGecko',
+                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                    ),
+                    const Divider(color: Colors.white12),
                     const SizedBox(height: 10),
                     textWidget("Your Personal Cryptocurrency Handbook"),
+                    SizedBox(height: 10),
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                      ),
+                      onPressed: () {
+                        launchUrlString(
+                            'https://play.google.com/store/apps/details?id=com.subrotokumar.coinstate',
+                            mode: LaunchMode.externalNonBrowserApplication);
+                      },
+                      child: Text('Rate us on Playstore'),
+                    ),
                     const SizedBox(height: 10),
-                    const Divider(color: Colors.white),
+                    const Divider(color: Colors.white12),
                   ],
                 ),
               ),
@@ -92,10 +113,10 @@ class About extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GitHub(username: 'subrotokumar'),
-                Twitter(username: 'subrotokr'),
+                Twitter(username: 'isubrotokumar'),
               ],
             ),
-            Divider(color: Colors.white),
+            Divider(color: Colors.white12),
           ],
         ),
       ),

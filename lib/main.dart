@@ -25,10 +25,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'CrytoBook',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
-              .copyWith(secondary: Colors.white),
+        title: 'Coinstate',
+        theme: ThemeData.dark(
+          useMaterial3: true,
         ),
         initialRoute: SplashScreen.route,
         routes: {

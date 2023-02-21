@@ -31,19 +31,18 @@ class _DescriptionState extends State<Description> {
   @override
   Widget build(BuildContext context) {
     var htmldata = widget.desc;
-    return widget.loading
-        ? Center(
-            child: Lottie.asset('assets/lotties/loading.json', width: 200),
-          )
-        : Html(
-            data: htmldata,
-            style: {
-              "body": Style(
-                textAlign: TextAlign.justify,
-                color: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-              ),
-            },
-          );
+    return Visibility(
+      visible: !widget.loading,
+      child: Html(
+        data: htmldata,
+        style: {
+          "body": Style(
+            textAlign: TextAlign.justify,
+            color: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+          ),
+        },
+      ),
+    );
   }
 }
